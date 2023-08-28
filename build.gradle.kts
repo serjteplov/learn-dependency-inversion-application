@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "ru.serj.learn"
-version = "1.0"
+version = "1.1"
 
 repositories {
     mavenLocal()
@@ -16,11 +16,12 @@ repositories {
 }
 
 dependencies {
-    implementation("ru.serj.learn:learn-dependency-inversion-core:1.3")
+    implementation("ru.serj.learn:learn-dependency-inversion-core:1.4")
 }
 
 tasks {
     publishToMavenLocal {
+        dependsOn(clean)
         dependsOn(build)
         dependsOn(shadowJar)
     }
